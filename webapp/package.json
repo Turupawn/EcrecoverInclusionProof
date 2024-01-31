@@ -1,0 +1,28 @@
+{
+  "name": "verification-counter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview",
+    "relayer": "node relayer/relayer.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@noir-lang/backend_barretenberg": "^0.22.0",
+    "@noir-lang/noir_js": "^0.22.0",
+    "dotenv": "^16.3.1",
+    "@alch/alchemy-web3": "^1.1.7",
+    "cors": "^2.8.5",
+    "node-fetch": "^3.1.0"
+  },
+  "devDependencies": {
+    "rollup-plugin-copy": "^3.5.0",
+    "vite": "^4.5.0",
+    "vite-plugin-environment": "^1.1.3"
+  }
+}
