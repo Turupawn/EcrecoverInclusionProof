@@ -216,10 +216,16 @@ const sendProof = async (comment) => {
   proof = "0x" + ethereumjs.Buffer.Buffer.from(proof.proof).toString('hex')
 
   var tHashedMessage = splitIntoPairs(hashedMessage.substring(2))
+
   for(var i=0; i<tHashedMessage.length; i++)
   {
     tHashedMessage[i] = "0x00000000000000000000000000000000000000000000000000000000000000" + tHashedMessage[i]
   }
+
+  tHashedMessage.push("0x2a550743aa7151b3324482a03b2961ec4b038672a701f8ad0051b2c9d2e6c4c0")
+
+  console.log("tHashedMessage2")
+  console.log(tHashedMessage)
 
 
   await updateMetadata(proof, tHashedMessage, comment)

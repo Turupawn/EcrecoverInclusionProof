@@ -69,9 +69,9 @@ abstract contract Utils {
 
     // CONCATENATE HEX ARRAY
     // From ChatGPT
-    function concatenateHexArray(bytes32[] memory hexArray) internal pure returns (bytes32) {
+    function concatenateHexArray(bytes32[] memory hexArray, uint start, uint end) internal pure returns (bytes32) {
         bytes32 result;
-        for (uint256 i = 0; i < hexArray.length; i++) {
+        for (uint256 i = start; i < end; i++) {
             result = result << 8 | hexArray[i];
         }
         return result;
@@ -82,9 +82,11 @@ contract CommentVerifier is Utils {
     uint public commentCount;
     mapping(uint commentCount => string comment) public comments;
     IUltraVerifier ultraVerifier;
+    bytes32 merkleRoot;
 
-    constructor(address verifierAddress) {
+    constructor(address verifierAddress, bytes32 _merkleRoot) {
         ultraVerifier = IUltraVerifier(verifierAddress);
+        merkleRoot = _merkleRoot;
     }
 
     function hashCommentMessage(string memory comment) public pure returns(bytes32) {
@@ -96,7 +98,8 @@ contract CommentVerifier is Utils {
 
     function sendProof(bytes calldata _proof, bytes32[] calldata _publicInputs, string memory comment) public
     {
-        require(concatenateHexArray(_publicInputs) == hashCommentMessage(comment), "Invalid message hash");
+        require(concatenateHexArray(_publicInputs, 0, 32) == hashCommentMessage(comment), "Invalid message hash");
+        require(_publicInputs[32] == merkleRoot, "Invalid merkle root");
         ultraVerifier.verify(_proof, _publicInputs);
         comments[commentCount] = comment;
         commentCount += 1;

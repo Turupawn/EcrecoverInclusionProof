@@ -2,9 +2,37 @@
 	{
 		"inputs": [
 			{
+				"internalType": "bytes",
+				"name": "_proof",
+				"type": "bytes"
+			},
+			{
+				"internalType": "bytes32[]",
+				"name": "_publicInputs",
+				"type": "bytes32[]"
+			},
+			{
+				"internalType": "string",
+				"name": "comment",
+				"type": "string"
+			}
+		],
+		"name": "sendProof",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "verifierAddress",
 				"type": "address"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "_merkleRoot",
+				"type": "bytes32"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -27,7 +55,7 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "commentId",
+				"name": "commentCount",
 				"type": "uint256"
 			}
 		],
@@ -45,24 +73,20 @@
 	{
 		"inputs": [
 			{
-				"internalType": "bytes",
-				"name": "_proof",
-				"type": "bytes"
-			},
-			{
-				"internalType": "bytes32[]",
-				"name": "_publicInputs",
-				"type": "bytes32[]"
-			},
-			{
 				"internalType": "string",
 				"name": "comment",
 				"type": "string"
 			}
 		],
-		"name": "sendProof",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"name": "hashCommentMessage",
+		"outputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"stateMutability": "pure",
 		"type": "function"
 	}
 ]

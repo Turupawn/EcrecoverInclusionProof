@@ -9,7 +9,7 @@ fn main(
   pub_key_y: [u8; 32],
   signature: [u8; 64],
   hashed_message: pub [u8; 32],
-  root: Field,
+  root: pub Field,
   index: Field,
   hash_path: [Field; 2]
 ) {
