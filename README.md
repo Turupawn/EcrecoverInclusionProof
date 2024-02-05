@@ -8,7 +8,7 @@ This demo showcases all the parts needed to create a privacy preserving DApp wit
 * A relayer
 * A webapp
 
-## ⭐Features
+## ✅Features
 
 | Feature | Supported |
 |----------|------------ |
