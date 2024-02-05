@@ -1,4 +1,4 @@
-Message board with limited anonymity set.
+Message board with anonymity set inclusion proofs.
 
 # On-chain Privacy DApp Demo using inclusion proofs
 
